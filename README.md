@@ -3,7 +3,7 @@
 ## TODO
 
 - [x] Setup local database
-- [] Scaffold basic ui with moke data
+- [x] Scaffold basic ui with moke data
 - [] Attach database to ui
 - [] Add authentication (NextAuth)
 - [] Add image upload

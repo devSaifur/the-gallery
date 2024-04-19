@@ -18,10 +18,11 @@ export default function HomePage() {
   return (
     <main className="mx-auto max-w-[90rem]">
       <div className="flex flex-wrap gap-4">
-        {[...mokeImages, ...mokeImages, ...mokeImages].map((image) => (
-          <div className="size-56 relative mx-auto" key={image.id}>
+        {[...mokeImages, ...mokeImages, ...mokeImages].map((image, i) => (
+          <div className="size-56 relative mx-auto" key={image.id + '-' + i}>
             <Image
               src={image.src}
+              priority
               sizes="(max-width: 768px) 20vw, 30vw"
               fill
               alt=""
