@@ -4,7 +4,7 @@
 
 - [x] Setup local database
 - [x] Scaffold basic ui with moke data
-- [] Attach database to ui
+- [x] Attach database to ui
 - [x] Add authentication (NextAuth)
 - [x] Add image upload
 - [] Error management (Sentry)
