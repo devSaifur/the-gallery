@@ -1,3 +1,13 @@
+CREATE TABLE `image` (
+	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	`name` text(256),
+	`url` text(256),
+	`createdById` text(255) NOT NULL,
+	`created_at` integer DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	`updatedAt` integer,
+	FOREIGN KEY (`createdById`) REFERENCES `user`(`id`) ON UPDATE no action ON DELETE no action
+);
+--> statement-breakpoint
 CREATE TABLE `account` (
 	`userId` text(255) NOT NULL,
 	`type` text(255) NOT NULL,
@@ -12,15 +22,6 @@ CREATE TABLE `account` (
 	`session_state` text(255),
 	PRIMARY KEY(`provider`, `providerAccountId`),
 	FOREIGN KEY (`userId`) REFERENCES `user`(`id`) ON UPDATE no action ON DELETE no action
-);
---> statement-breakpoint
-CREATE TABLE `post` (
-	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
-	`name` text(256),
-	`createdById` text(255) NOT NULL,
-	`created_at` integer DEFAULT CURRENT_TIMESTAMP NOT NULL,
-	`updatedAt` integer,
-	FOREIGN KEY (`createdById`) REFERENCES `user`(`id`) ON UPDATE no action ON DELETE no action
 );
 --> statement-breakpoint
 CREATE TABLE `session` (
@@ -45,7 +46,6 @@ CREATE TABLE `verificationToken` (
 	PRIMARY KEY(`identifier`, `token`)
 );
 --> statement-breakpoint
+CREATE INDEX `createdById_idx` ON `image` (`createdById`);--> statement-breakpoint
 CREATE INDEX `account_userId_idx` ON `account` (`userId`);--> statement-breakpoint
-CREATE INDEX `createdById_idx` ON `post` (`createdById`);--> statement-breakpoint
-CREATE INDEX `name_idx` ON `post` (`name`);--> statement-breakpoint
 CREATE INDEX `session_userId_idx` ON `session` (`userId`);

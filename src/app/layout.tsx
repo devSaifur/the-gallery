@@ -1,7 +1,9 @@
+import '@uploadthing/react/styles.css'
 import { GeistSans } from 'geist/font/sans'
 import { SessionProvider } from 'next-auth/react'
 import Link from 'next/link'
 import LogoutBtn from '~/components/LogoutBtn'
+import UploadBtn from '~/components/UploadBtn'
 import { Avatar, AvatarFallback, AvatarImage } from '~/components/ui/avatar'
 import { Button } from '~/components/ui/button'
 import {
@@ -51,7 +53,8 @@ async function Navbar() {
 
   return (
     <nav>
-      <ul className="flex px-20 py-4 justify-end">
+      <ul className="flex px-20 py-4 gap-x-4 justify-end">
+        <UploadBtn />
         <li>
           {user ? (
             <DropdownMenu>

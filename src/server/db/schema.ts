@@ -8,25 +8,6 @@ import {
 } from 'drizzle-orm/sqlite-core'
 import { type AdapterAccount } from 'next-auth/adapters'
 
-export const posts = sqliteTable(
-  'post',
-  {
-    id: int('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
-    name: text('name', { length: 256 }),
-    createdById: text('createdById', { length: 255 })
-      .notNull()
-      .references(() => users.id),
-    createdAt: int('created_at', { mode: 'timestamp' })
-      .default(sql`CURRENT_TIMESTAMP`)
-      .notNull(),
-    updatedAt: int('updatedAt', { mode: 'timestamp' }),
-  },
-  (example) => ({
-    createdByIdIdx: index('createdById_idx').on(example.createdById),
-    nameIndex: index('name_idx').on(example.name),
-  }),
-)
-
 export const users = sqliteTable('user', {
   id: text('id', { length: 255 }).notNull().primaryKey(),
   name: text('name', { length: 255 }),
@@ -99,5 +80,23 @@ export const verificationTokens = sqliteTable(
   },
   (vt) => ({
     compoundKey: primaryKey({ columns: [vt.identifier, vt.token] }),
+  }),
+)
+export const images = sqliteTable(
+  'image',
+  {
+    id: int('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
+    name: text('name', { length: 256 }).notNull(),
+    url: text('url', { length: 256 }).notNull(),
+    createdById: text('createdById', { length: 255 })
+      .notNull()
+      .references(() => users.id),
+    createdAt: int('created_at', { mode: 'timestamp' })
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+    updatedAt: int('updatedAt', { mode: 'timestamp' }),
+  },
+  (image) => ({
+    createdByIdIdx: index('createdById_idx').on(image.createdById),
   }),
 )

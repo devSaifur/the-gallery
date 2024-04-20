@@ -6,7 +6,7 @@
 - [x] Scaffold basic ui with moke data
 - [] Attach database to ui
 - [x] Add authentication (NextAuth)
-- [] Add image upload
+- [x] Add image upload
 - [] Error management (Sentry)
 - [] Routing/Image page (parallel routing)
 - [] Delete button with server action
