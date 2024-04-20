@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation'
 import { Button } from '~/components/ui/button'
 import {
   Card,
@@ -7,8 +8,16 @@ import {
   CardTitle,
 } from '~/components/ui/card'
 import { Icons } from '~/components/ui/icons'
+import { signIn } from '~/lib/auth'
+import { currentUser } from '~/lib/auth/checkUser'
 
-export default function SignUp() {
+export default async function SignIn() {
+  const user = await currentUser()
+
+  if (user) {
+    redirect('/')
+  }
+
   return (
     <div className="flex items-center justify-center h-screen">
       <Card className="min-w-96 mx-auto">
@@ -17,10 +26,17 @@ export default function SignUp() {
           <CardDescription>Continue with google</CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4">
-          <Button variant="outline">
-            <Icons.google className="mr-2 size-4" />
-            Google
-          </Button>
+          <form
+            action={async () => {
+              'use server'
+              await signIn('google')
+            }}
+          >
+            <Button type="submit" variant="outline">
+              <Icons.google className="mr-2 size-4" />
+              Google
+            </Button>
+          </form>
         </CardContent>
       </Card>
     </div>

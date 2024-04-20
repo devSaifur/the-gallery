@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import { redirect } from 'next/navigation'
+import { currentUser } from '~/lib/auth/checkUser'
 
 const mokeUrl = [
   'https://utfs.io/f/3f9a09cd-7c85-42de-b591-7a029514b57a-tqema4.jpg',
@@ -14,7 +16,13 @@ const mokeImages = mokeUrl.map((url, i) => {
   }
 })
 
-export default function HomePage() {
+export default async function HomePage() {
+  const user = await currentUser()
+
+  if (!user) {
+    redirect('/sign-in')
+  }
+
   return (
     <main className="mx-auto max-w-[90rem]">
       <div className="flex flex-wrap gap-4">
