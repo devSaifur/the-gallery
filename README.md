@@ -8,7 +8,7 @@
 - [x] Add authentication (NextAuth)
 - [x] Add image upload
 - [x] Error management (Sentry)
-- [] Routing/Image page (parallel routing)
+- [x] Parallel Routing/Image page & Modal
 - [] Delete button with server action
 - [] Analytics (Posthog)
 - [] Rate limiting (upstash)

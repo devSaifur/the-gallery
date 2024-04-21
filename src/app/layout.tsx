@@ -26,8 +26,10 @@ export const metadata = {
 
 export default async function RootLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode
+  modal: React.ReactNode
 }) {
   const session = await auth()
 
@@ -42,6 +44,7 @@ export default async function RootLayout({
         >
           <Navbar />
           {children}
+          {modal}
         </body>
       </html>
     </SessionProvider>
