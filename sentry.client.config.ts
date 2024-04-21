@@ -1,11 +1,10 @@
 // This file configures the initialization of Sentry on the client.
 // The config you add here will be used whenever a users loads a page in their browser.
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
-
-import * as Sentry from "@sentry/nextjs";
+import * as Sentry from '@sentry/nextjs'
 
 Sentry.init({
-  dsn: "https://8c2108825137769b3c2f8206d79b5c52@o4507123325927424.ingest.us.sentry.io/4507123373834240",
+  dsn: 'https://8c2108825137769b3c2f8206d79b5c52@o4507123325927424.ingest.us.sentry.io/4507123373834240',
 
   // Adjust this value in production, or use tracesSampler for greater control
   tracesSampleRate: 1,
@@ -27,4 +26,4 @@ Sentry.init({
       blockAllMedia: true,
     }),
   ],
-});
+})
