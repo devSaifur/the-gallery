@@ -1,7 +1,10 @@
+import { ourFileRouter } from './api/uploadthing/core'
+import { NextSSRPlugin } from '@uploadthing/react/next-ssr-plugin'
 import '@uploadthing/react/styles.css'
 import { GeistSans } from 'geist/font/sans'
 import { SessionProvider } from 'next-auth/react'
 import Link from 'next/link'
+import { extractRouterConfig } from 'uploadthing/server'
 import LogoutBtn from '~/components/LogoutBtn'
 import UploadBtn from '~/components/UploadBtn'
 import { Avatar, AvatarFallback, AvatarImage } from '~/components/ui/avatar'
@@ -36,6 +39,15 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang="en">
+        <NextSSRPlugin
+          /**
+           * The `extractRouterConfig` will extract **only** the route configs
+           * from the router to prevent additional information from being
+           * leaked to the client. The data passed to the client is the same
+           * as if we were to fetch `/api/uploadthing` directly.
+           */
+          routerConfig={extractRouterConfig(ourFileRouter)}
+        />
         <body
           className={cn(
             GeistSans.className,
@@ -45,6 +57,7 @@ export default async function RootLayout({
           <Navbar />
           {children}
           {modal}
+          <div id="modal-root" />
         </body>
       </html>
     </SessionProvider>
