@@ -14,7 +14,7 @@ export default async function HomePage() {
               priority
               sizes="(max-width: 768px) 20vw, 30vw"
               fill
-              alt=""
+              alt={image.name}
             />
           </div>
         ))}
