@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import { FullPageImageView } from '~/components/full-page-image-view'
 import { getImage } from '~/server/queries'
 
 export default async function PhotoPage({
@@ -13,13 +13,8 @@ export default async function PhotoPage({
   }
 
   return (
-    <div className="relative size-60">
-      <Image
-        src={image.url}
-        alt={image.name}
-        sizes="(max-width: 768px) 20vw, 30vw"
-        fill
-      />
+    <div className="flex h-full min-h-0 w-full min-w-0 overflow-y-hidden">
+      <FullPageImageView photoId={photoId} />
     </div>
   )
 }

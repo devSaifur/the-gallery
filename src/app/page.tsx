@@ -23,6 +23,7 @@ export default async function HomePage() {
                 sizes="(max-width: 768px) 20vw, 30vw"
                 fill
                 alt={image.name}
+                className="object-cover"
               />
             </div>
           </Link>

@@ -15,7 +15,7 @@ export default async function PhotoModal({
 
   return (
     <Modal>
-      <div className="relative size-60">
+      <div className="relative size-60 m-auto border border-red-500">
         <Image
           src={image.url}
           alt={image.name}

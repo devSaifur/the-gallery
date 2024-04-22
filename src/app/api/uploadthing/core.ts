@@ -31,7 +31,7 @@ export const ourFileRouter = {
         createdById: metadata.userId,
         url: file.url,
         name: file.name,
-        updatedAt: new Date(),
+        createdAt: new Date(),
       })
 
       // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback

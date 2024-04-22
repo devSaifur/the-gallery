@@ -23,7 +23,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
   return createPortal(
     <dialog
       ref={dialogRef}
-      className="absolute inset-0 w-96 h-96 bg-black/90"
+      className="absolute w-screen h-screen bg-zinc-900/70"
       onClose={onDismiss}
     >
       <Button onClick={onDismiss}>

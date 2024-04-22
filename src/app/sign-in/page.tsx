@@ -11,7 +11,7 @@ import { signIn } from '~/lib/auth'
 
 export default async function SignIn() {
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex mt-40">
       <Card className="min-w-96 mx-auto">
         <CardHeader className="space-y-1 text-center">
           <CardTitle className="text-2xl">Create an account</CardTitle>

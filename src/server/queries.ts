@@ -1,4 +1,6 @@
 import { db } from './db'
+import { images } from './db/schema'
+import { eq } from 'drizzle-orm'
 import 'server-only'
 import { currentUser } from '~/lib/auth/checkUser'
 
@@ -27,4 +29,8 @@ export async function getImage(id: number) {
   if (image?.createdById !== user.id) throw new Error('Unauthorized')
 
   return image
+}
+
+export async function deleteImage(id: number) {
+  await db.delete(images).where(eq(images.id, id))
 }

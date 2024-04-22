@@ -91,10 +91,7 @@ export const images = sqliteTable(
     createdById: text('createdById', { length: 255 })
       .notNull()
       .references(() => users.id),
-    createdAt: int('created_at', { mode: 'timestamp' })
-      .default(sql`CURRENT_TIMESTAMP`)
-      .notNull(),
-    updatedAt: int('updatedAt', { mode: 'timestamp' }),
+    createdAt: int('created_at', { mode: 'timestamp' }).notNull(),
   },
   (image) => ({
     createdByIdIdx: index('createdById_idx').on(image.createdById),

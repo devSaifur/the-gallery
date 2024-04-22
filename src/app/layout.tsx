@@ -48,12 +48,7 @@ export default async function RootLayout({
            */
           routerConfig={extractRouterConfig(ourFileRouter)}
         />
-        <body
-          className={cn(
-            GeistSans.className,
-            'bg-black text-white w-full h-screen',
-          )}
-        >
+        <body className={cn(GeistSans.className, 'bg-black text-white')}>
           <Navbar />
           {children}
           {modal}
