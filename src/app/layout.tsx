@@ -49,8 +49,10 @@ export default async function RootLayout({
           routerConfig={extractRouterConfig(ourFileRouter)}
         />
         <body className={cn(GeistSans.className, 'bg-black text-white')}>
-          <Navbar />
-          {children}
+          <div className="grid h-screen grid-rows-[auto,1fr]">
+            <Navbar />
+            <main className="overflow-y-scroll">{children}</main>
+          </div>
           {modal}
           <div id="modal-root" />
         </body>

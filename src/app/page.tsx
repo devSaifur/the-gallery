@@ -11,10 +11,12 @@ export default async function HomePage() {
 
   const images = await getImages()
 
+  if (!images) return null
+
   return (
-    <main className="mx-auto max-w-[90rem]">
+    <div className="mx-auto max-w-[90rem] p-4">
       <div className="flex flex-wrap gap-4">
-        {images?.map((image) => (
+        {images.map((image) => (
           <Link href={`/img/${image.id}`} key={image.id}>
             <div className="size-56 relative mx-auto">
               <Image
@@ -29,6 +31,6 @@ export default async function HomePage() {
           </Link>
         ))}
       </div>
-    </main>
+    </div>
   )
 }

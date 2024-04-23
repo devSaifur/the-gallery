@@ -17,8 +17,8 @@ export async function FullPageImageView(props: { photoId: string }) {
   }
 
   return (
-    <div className="flex h-full w-screen min-w-0 items-center justify-center text-white">
-      <div className="flex-shrink relative min-w-min h-96 flex-grow">
+    <div className="h-full w-screen flex text-white min-w-0 items-center justify-center">
+      <div className="flex-shrink relative h-3/4 w-3/4 flex-grow">
         <Image
           src={image.url}
           className="object-contain"
@@ -27,7 +27,7 @@ export async function FullPageImageView(props: { photoId: string }) {
           fill
         />
       </div>
-      <div className="flex h-full w-56 flex-shrink-0 flex-col border-l">
+      <div className="flex h-full flex-shrink-0 flex-col border-l">
         <div className="border-b p-2 text-center text-xl">{image.name}</div>
 
         <div className="p-2">

@@ -23,10 +23,10 @@ export default function Modal({ children }: { children: React.ReactNode }) {
   return createPortal(
     <dialog
       ref={dialogRef}
-      className="absolute w-screen h-screen bg-zinc-900/70"
+      className="absolute w-screen flex items-center justify-center h-screen flex-col bg-zinc-900/70"
       onClose={onDismiss}
     >
-      <Button onClick={onDismiss}>
+      <Button onClick={onDismiss} className="absolute right-80 top-40">
         <Cross1Icon className="size-4" />
       </Button>
       {children}
