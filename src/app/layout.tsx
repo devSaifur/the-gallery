@@ -4,9 +4,9 @@ import '@uploadthing/react/styles.css'
 import { GeistSans } from 'geist/font/sans'
 import { SessionProvider } from 'next-auth/react'
 import Link from 'next/link'
+import { Toaster } from 'sonner'
 import { extractRouterConfig } from 'uploadthing/server'
 import LogoutBtn from '~/components/LogoutBtn'
-import UploadBtn from '~/components/UploadBtn'
 import { Avatar, AvatarFallback, AvatarImage } from '~/components/ui/avatar'
 import { Button } from '~/components/ui/button'
 import {
@@ -16,6 +16,7 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from '~/components/ui/dropdown-menu'
+import { UploadButton } from '~/components/upload-button'
 import { auth, signOut } from '~/lib/auth'
 import { currentUser } from '~/lib/auth/checkUser'
 import { cn } from '~/lib/utils'
@@ -55,6 +56,7 @@ export default async function RootLayout({
           </div>
           {modal}
           <div id="modal-root" />
+          <Toaster />
         </body>
       </html>
     </SessionProvider>
@@ -67,7 +69,7 @@ async function Navbar() {
   return (
     <nav>
       <ul className="flex px-20 py-4 gap-x-4 justify-end">
-        <UploadBtn />
+        <UploadButton />
         <li>
           {user ? (
             <DropdownMenu>
