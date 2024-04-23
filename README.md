@@ -10,6 +10,5 @@
 - [x] Error management (Sentry)
 - [x] Parallel Routing/Image page & Modal
 - [] Delete button with server action
-- [] Analytics (Posthog)
 - [] Rate limiting (upstash)
 - [x] Connect Turso for production database
