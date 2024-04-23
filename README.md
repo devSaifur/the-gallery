@@ -9,6 +9,6 @@
 - [x] Add image upload
 - [x] Error management (Sentry)
 - [x] Parallel Routing/Image page & Modal
-- [] Delete button with server action
-- [] Rate limiting (upstash)
+- [x] Delete button with server action
+- [x] Rate limiting (upstash)
 - [x] Connect Turso for production database
